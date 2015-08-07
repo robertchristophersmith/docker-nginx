@@ -7,8 +7,8 @@ RUN apt-key adv --keyserver hkp://pgp.mit.edu:80 --recv-keys 573BFD6B3D8FBC64107
 RUN echo "deb http://nginx.org/packages/mainline/debian/ jessie nginx" >> /etc/apt/sources.list
 
 # Insert apt-cacher-ng proxy
-RUN echo 'Acquire::http { Proxy "http://dockerhost:3142"; };' >> \
-    /etc/apt/apt.conf.d/01proxy
+# RUN echo 'Acquire::http { Proxy "http://dockerhost:3142"; };' >> \
+#     /etc/apt/apt.conf.d/01proxy
 
 RUN apt-get update && \
     apt-get install -y ca-certificates nginx=${NGINX_VERSION} && \
